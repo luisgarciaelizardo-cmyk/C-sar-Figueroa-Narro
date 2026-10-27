@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>César Figueroa Narro | RAL Ventas</title>
+  <meta name="description" content="Tarjeta de presentación digital de César Figueroa Narro, Departamento de Ventas RAL.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" href="assets/logo-ral.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --card: #141416;
+      --card-edge: #2a2a2d;
+      --red: #e3232b;
+      --coral: #f26a52;
+      --gray-dark: #3a3a3d;
+      --gray: #6e6e72;
+      --text: #f4f4f5;
+      --muted: #a1a1a6;
+      --whatsapp: #25d366;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      font-family: "Montserrat", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(227, 35, 43, .18), transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(110, 110, 114, .18), transparent 45%),
+        var(--bg);
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding: 44px 32px 36px;
+      border-radius: 22px;
+      background: linear-gradient(160deg, #1b1b1e 0%, var(--card) 55%, #0e0e10 100%);
+      border: 1px solid var(--card-edge);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, .6);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Franjas diagonales inspiradas en el logo */
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      left: -20%;
+      width: 140%;
+      height: 14px;
+      transform: skewY(-8deg);
+    }
+    .card::before {
+      top: 0;
+      background: linear-gradient(90deg, var(--coral), var(--red));
+    }
+    .card::after {
+      top: 18px;
+      height: 10px;
+      background: linear-gradient(90deg, var(--gray-dark), var(--gray));
+    }
+
+    .logo {
+      width: 130px;
+      height: auto;
+      margin: 18px auto 20px;
+      display: block;
+      mix-blend-mode: lighten; /* oculta el fondo negro del logo */
+    }
+
+    .brand {
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .5em;
+      margin-right: -.5em;
+      color: var(--muted);
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      margin: 22px auto;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--coral), var(--red));
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .role {
+      margin-top: 10px;
+      font-size: .8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--red);
+    }
+
+    .phone {
+      display: inline-block;
+      margin-top: 22px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .phone:hover { color: var(--coral); }
+
+    .actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font: inherit;
+      font-weight: 600;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(37, 211, 102, .25);
+    }
+    .btn-whatsapp:hover { box-shadow: 0 14px 30px rgba(37, 211, 102, .35); }
+
+    .btn-call {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--gray-dark);
+    }
+    .btn-call:hover { border-color: var(--red); background: rgba(227, 35, 43, .08); }
+
+    footer {
+      margin-top: 30px;
+      font-size: .7rem;
+      color: var(--gray);
+      letter-spacing: .1em;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="assets/logo-ral.jpg" alt="Logo RAL">
+    <p class="brand">RAL</p>
+
+    <div class="divider"></div>
+
+    <h1>César Figueroa Narro</h1>
+    <p class="role">Departamento de Ventas</p>
+
+    <a class="phone" href="tel:+528442659369">844 265 9369</a>
+
+    <div class="actions">
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/528442659369?text=Hola%20C%C3%A9sar%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n."
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.44 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.07c0 2 .52 3.96 1.52 5.68L.58 23.7l6.08-1.6a11.33 11.33 0 0 0 5.39 1.37h.01c6.26 0 11.36-5.1 11.37-11.37 0-3.04-1.18-5.89-3.34-8.04z"/>
+        </svg>
+        Escríbeme por WhatsApp
+      </a>
+      <a class="btn btn-call" href="tel:+528442659369">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Llamar
+      </a>
+    </div>
+
+    <footer>RAL · VENTAS</footer>
+  </main>
+</body>
+</html>
