@@ -4,23 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>César Figueroa Narro | RAL Ventas</title>
-  <meta name="description" content="Tarjeta de presentación digital de César Figueroa Narro, Departamento de Ventas RAL.">
-  <meta name="theme-color" content="#0a0a0b">
+  <meta name="description" content="Tarjeta de presentación de César Figueroa Narro, Departamento de Ventas de RAL.">
+  <meta name="theme-color" content="#060709">
   <link rel="icon" href="assets/logo-ral.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0b;
-      --card: #141416;
-      --card-edge: #2a2a2d;
-      --red: #e3232b;
-      --coral: #f26a52;
-      --gray-dark: #3a3a3d;
-      --gray: #6e6e72;
-      --text: #f4f4f5;
-      --muted: #a1a1a6;
+      --bg: #060709;
+      --card: #0e0f12;
+      --red: #e3262b;
+      --red-light: #f0624a;
+      --gray-dark: #3a3b3e;
+      --gray: #6e6f72;
+      --gray-light: #a7a8ab;
+      --text: #f2f2f3;
       --whatsapp: #25d366;
     }
 
@@ -31,337 +30,435 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 48px;
-      padding: 32px 16px 48px;
-      font-family: "Montserrat", system-ui, sans-serif;
-      color: var(--text);
+      gap: 56px;
+      padding: 40px 16px 56px;
       background:
-        radial-gradient(circle at 15% 10%, rgba(227, 35, 43, .18), transparent 40%),
-        radial-gradient(circle at 85% 90%, rgba(110, 110, 114, .18), transparent 45%),
+        radial-gradient(circle at 15% 10%, rgba(227, 38, 43, 0.12), transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(110, 111, 114, 0.15), transparent 45%),
         var(--bg);
+      font-family: "Barlow", system-ui, sans-serif;
+      color: var(--text);
     }
 
     .card {
       position: relative;
       width: 100%;
       max-width: 380px;
-      padding: 44px 32px 36px;
-      border-radius: 22px;
-      background: linear-gradient(160deg, #1b1b1e 0%, var(--card) 55%, #0e0e10 100%);
-      border: 1px solid var(--card-edge);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, .6);
+      background: linear-gradient(160deg, #15161a 0%, var(--card) 55%, #08090b 100%);
+      border: 1px solid #222327;
+      clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
       overflow: hidden;
-      text-align: center;
+      animation: rise 0.7s ease-out both;
     }
 
     /* Franjas diagonales inspiradas en el logo */
-    .card::before,
-    .card::after {
-      content: "";
+    .stripes {
       position: absolute;
-      left: -20%;
-      width: 140%;
-      height: 14px;
-      transform: skewY(-8deg);
-    }
-    .card::before {
       top: 0;
-      background: linear-gradient(90deg, var(--coral), var(--red));
+      right: -40px;
+      width: 220px;
+      height: 120px;
+      pointer-events: none;
     }
-    .card::after {
-      top: 18px;
-      height: 10px;
-      background: linear-gradient(90deg, var(--gray-dark), var(--gray));
+    .stripes span {
+      position: absolute;
+      right: 0;
+      height: 26px;
+      transform: skewY(-14deg);
+    }
+    .stripes .s1 { top: 18px; width: 170px; background: linear-gradient(90deg, var(--red-light), var(--red)); }
+    .stripes .s2 { top: 52px; width: 140px; background: linear-gradient(90deg, #4a4b4f, var(--gray-dark)); }
+    .stripes .s3 { top: 86px; width: 110px; background: #25262a; }
+
+    .header {
+      position: relative;
+      padding: 36px 28px 0;
     }
 
     .logo {
-      width: 130px;
-      height: auto;
-      margin: 18px auto 20px;
-      display: block;
-      mix-blend-mode: lighten; /* oculta el fondo negro del logo */
+      width: 104px;
+      height: 104px;
+      object-fit: cover;
+      background: #060709;
+      border: 2px solid #26272b;
+      clip-path: polygon(0 0, 82% 0, 100% 18%, 100% 100%, 18% 100%, 0 82%);
     }
 
     .brand {
-      font-size: .8rem;
-      font-weight: 800;
-      letter-spacing: .5em;
-      margin-right: -.5em;
-      color: var(--muted);
+      margin-top: 14px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      color: var(--gray-light);
+    }
+    .brand b { color: var(--red); }
+
+    .body { padding: 22px 28px 30px; }
+
+    .name {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 0.98;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+    .name span { display: block; color: var(--gray-light); }
+
+    .role {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 7px 16px 7px 12px;
+      background: var(--red);
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
     }
 
     .divider {
-      width: 60px;
-      height: 4px;
-      margin: 22px auto;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--coral), var(--red));
+      display: flex;
+      gap: 6px;
+      margin: 26px 0 22px;
     }
+    .divider i { height: 4px; transform: skewX(-30deg); }
+    .divider i:nth-child(1) { width: 56px; background: var(--red); }
+    .divider i:nth-child(2) { width: 36px; background: var(--gray); }
+    .divider i:nth-child(3) { flex: 1; background: #232428; }
 
-    h1 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .role {
-      margin-top: 10px;
-      font-size: .8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .2em;
-      color: var(--red);
-    }
-
-    .phone {
-      display: inline-block;
-      margin-top: 22px;
-      font-size: 1.05rem;
-      font-weight: 600;
+    .contact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       color: var(--text);
       text-decoration: none;
+      font-size: 17px;
+      font-weight: 500;
     }
-    .phone:hover { color: var(--coral); }
-
-    .actions {
+    .contact .icon {
       display: grid;
-      gap: 12px;
-      margin-top: 28px;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      background: #1c1d21;
+      border: 1px solid #2c2d31;
+      color: var(--red);
+    }
+    .contact small {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
     }
 
-    .btn {
+    .whatsapp {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 15px 20px;
-      border-radius: 12px;
-      font: inherit;
-      font-weight: 600;
-      font-size: .95rem;
-      text-decoration: none;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn svg { width: 22px; height: 22px; flex-shrink: 0; }
-
-    .btn-whatsapp {
+      gap: 12px;
+      width: 100%;
+      margin-top: 26px;
+      padding: 16px 20px;
       background: var(--whatsapp);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(37, 211, 102, .25);
+      color: #062b14;
+      text-decoration: none;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+      transition: transform 0.15s ease, filter 0.15s ease;
     }
-    .btn-whatsapp:hover { box-shadow: 0 14px 30px rgba(37, 211, 102, .35); }
-
-    .btn-call {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--gray-dark);
-    }
-    .btn-call:hover { border-color: var(--red); background: rgba(227, 35, 43, .08); }
+    .whatsapp:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .whatsapp:active { transform: translateY(0); }
+    .whatsapp:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+    .whatsapp svg { width: 26px; height: 26px; flex-shrink: 0; }
 
     .social {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
     }
     .social a {
-      display: grid;
-      place-items: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 10px;
+      background: #1c1d21;
+      border: 1px solid #2c2d31;
       color: var(--text);
-      background: #1f1f22;
-      border: 1px solid var(--gray-dark);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      text-decoration: none;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: border-color 0.15s ease, background 0.15s ease;
     }
-    .social a:hover { transform: translateY(-2px); border-color: transparent; }
-    .social .fb:hover { background: #1877f2; }
-    .social .ig:hover { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); }
-    .social svg { width: 22px; height: 22px; }
+    .social a:hover { border-color: var(--red); background: #232428; }
+    .social a:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
+    .social svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--red); }
+
+    .footer {
+      height: 8px;
+      background: linear-gradient(90deg, var(--red) 0 45%, var(--gray-dark) 45% 100%);
+    }
 
     /* Servicios */
     .services {
       width: 100%;
-      max-width: 960px;
+      max-width: 1040px;
     }
-    .section-title {
+    .services-head {
       text-align: center;
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: .08em;
+      margin-bottom: 28px;
+    }
+    .services-head .eyebrow {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .services-head h2 {
+      margin-top: 6px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 1;
       text-transform: uppercase;
     }
-    .section-title + .divider { margin: 14px auto 28px; }
-    .services h3.section-title { margin-top: 48px; font-size: 1.1rem; }
+    .services-head .divider { justify-content: center; margin: 16px auto 0; max-width: 200px; }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       gap: 16px;
     }
+
     .service {
       position: relative;
-      border-radius: 14px;
-      overflow: hidden;
       background: var(--card);
-      border: 1px solid var(--card-edge);
-      aspect-ratio: 4 / 3;
+      border: 1px solid #222327;
+      overflow: hidden;
+      clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
     }
     .service img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .service:hover img { transform: scale(1.05); }
+    .service h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 64px;
+      padding: 12px 16px;
+      border-top: 3px solid var(--red);
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .service h3 i {
+      width: 10px;
+      height: 18px;
+      flex-shrink: 0;
+      background: var(--red);
+      transform: skewX(-20deg);
+    }
+
+    .rental {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      margin-top: 16px;
+      background: var(--card);
+      border: 1px solid #222327;
+      clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+    }
+    .rental img {
+      display: block;
       width: 100%;
       height: 100%;
+      min-height: 260px;
       object-fit: cover;
-      display: block;
-      transition: transform .4s ease;
     }
-    .service:hover img { transform: scale(1.06); }
-    .service figcaption {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 36px 14px 12px;
-      font-size: .8rem;
-      font-weight: 600;
-      line-height: 1.3;
+    .rental-info { padding: 28px; border-left: 3px solid var(--red); }
+    .rental-info h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1;
       text-transform: uppercase;
-      letter-spacing: .04em;
-      background: linear-gradient(transparent, rgba(0, 0, 0, .9) 60%);
-      border-left: 4px solid var(--red);
     }
-    .service figcaption small {
-      display: block;
-      margin-top: 2px;
-      font-size: .7rem;
-      font-weight: 400;
-      color: var(--muted);
-      text-transform: none;
+    .rental-info ul {
+      list-style: none;
+      margin-top: 18px;
+      display: grid;
+      gap: 8px;
     }
+    .rental-info li {
+      display: flex;
+      gap: 10px;
+      font-size: 16px;
+      color: var(--gray-light);
+    }
+    .rental-info li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 7px;
+      flex-shrink: 0;
+      background: var(--red);
+      transform: rotate(45deg);
+    }
+    .rental-info li b { color: var(--text); font-weight: 600; }
 
-    @media (max-width: 480px) {
+    @media (max-width: 700px) {
+      .rental { grid-template-columns: 1fr; }
+      .rental img { min-height: 200px; aspect-ratio: 16 / 9; }
+      .rental-info { border-left: 0; border-top: 3px solid var(--red); padding: 22px; }
+      .services-head h2 { font-size: 32px; }
       .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .service figcaption { font-size: .68rem; padding: 28px 10px 10px; }
+      .service h3 { min-height: 58px; padding: 10px 12px; font-size: 15px; gap: 8px; }
+      .service h3 i { width: 7px; height: 14px; }
     }
 
-    footer {
-      margin-top: 30px;
-      font-size: .7rem;
-      color: var(--gray);
-      letter-spacing: .1em;
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+      .whatsapp, .social a, .service img { transition: none; }
+    }
+
+    @media (max-width: 360px) {
+      .name { font-size: 32px; }
+      .header, .body { padding-left: 22px; padding-right: 22px; }
     }
   </style>
 </head>
 <body>
   <main class="card">
-    <img class="logo" src="assets/logo-ral.jpg" alt="Logo RAL">
-    <p class="brand">RAL</p>
-
-    <div class="divider"></div>
-
-    <h1>César Figueroa Narro</h1>
-    <p class="role">Departamento de Ventas</p>
-
-    <a class="phone" href="tel:+528442659369">844 265 9369</a>
-
-    <div class="actions">
-      <a class="btn btn-whatsapp"
-         href="https://wa.me/528442659369?text=Hola%20C%C3%A9sar%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n."
-         target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.44 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.07c0 2 .52 3.96 1.52 5.68L.58 23.7l6.08-1.6a11.33 11.33 0 0 0 5.39 1.37h.01c6.26 0 11.36-5.1 11.37-11.37 0-3.04-1.18-5.89-3.34-8.04z"/>
-        </svg>
-        Escríbeme por WhatsApp
-      </a>
-      <a class="btn btn-call" href="tel:+528442659369">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        Llamar
-      </a>
+    <div class="stripes" aria-hidden="true">
+      <span class="s1"></span><span class="s2"></span><span class="s3"></span>
     </div>
 
-    <div class="social">
-      <a class="fb" href="https://www.facebook.com/share/1WKZqEqH3X/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
-      </a>
-      <a class="ig" href="https://instagram.com/gs.ral?mdxt=b3I0bzV4N293azNi" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-      </a>
-    </div>
+    <header class="header">
+      <img class="logo" src="assets/logo-ral.jpg" alt="Logo de RAL">
+      <p class="brand"><b>GS</b> RAL · Proveedores Industriales</p>
+    </header>
 
-    <footer>RAL · VENTAS</footer>
+    <section class="body">
+      <h1 class="name">César<span>Figueroa Narro</span></h1>
+      <p class="role">Departamento de Ventas</p>
+
+      <div class="divider" aria-hidden="true"><i></i><i></i><i></i></div>
+
+      <a class="contact" href="tel:+528442659369">
+        <span class="icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+        </span>
+        <span><small>Teléfono</small>844 265 9369</span>
+      </a>
+
+      <a class="whatsapp" href="https://wa.me/528442659369?text=Hola%20C%C3%A9sar%2C%20me%20interesa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.5L3 29l6.7-1.7A13 13 0 0 0 16 29c7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-4-.5-5.7-1.6l-.4-.2-4 1 1-3.9-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.6 5.7 5 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4z"/></svg>
+        Enviar WhatsApp
+      </a>
+
+      <nav class="social" aria-label="Redes sociales de RAL">
+        <a href="https://www.facebook.com/share/1WKZqEqH3X/?mibextid=wwXIfr" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/></svg>
+          Facebook
+        </a>
+        <a href="https://instagram.com/gs.ral?mdxt=b3I0bzV4N293azNi" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+          Instagram
+        </a>
+      </nav>
+    </section>
+
+    <div class="footer" aria-hidden="true"></div>
   </main>
 
-  <section class="services">
-    <h2 class="section-title">Nuestros servicios</h2>
-    <div class="divider"></div>
-    <div class="grid">
-      <figure class="service">
-        <img src="assets/servicios/rigging.jpg" alt="Rigging" loading="lazy">
-        <figcaption>Rigging</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/maniobras.jpg" alt="Maniobras industriales" loading="lazy">
-        <figcaption>Maniobras industriales</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/carga-descarga.jpg" alt="Carga / descarga" loading="lazy">
-        <figcaption>Carga / descarga</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/traslados.jpg" alt="Traslados de equipo y maquinaria" loading="lazy">
-        <figcaption>Traslados de equipo y maquinaria</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/reubicacion.jpg" alt="Reubicación de equipo" loading="lazy">
-        <figcaption>Reubicación de equipo</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/instalacion.jpg" alt="Instalación de todo tipo de maquinaria" loading="lazy">
-        <figcaption>Instalación de todo tipo de maquinaria</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/montaje-plantas.jpg" alt="Montaje y desmantelamiento de plantas industriales" loading="lazy">
-        <figcaption>Montaje y desmantelamiento de plantas industriales</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/montaje-estructuras.jpg" alt="Montaje de estructuras" loading="lazy">
-        <figcaption>Montaje de estructuras</figcaption>
-      </figure>
+  <section class="services" aria-labelledby="servicios-titulo">
+    <div class="services-head">
+      <p class="eyebrow">GS RAL Proveedores Industriales</p>
+      <h2 id="servicios-titulo">Nuestros servicios</h2>
+      <div class="divider" aria-hidden="true"><i></i><i></i><i></i></div>
     </div>
 
-    <h3 class="section-title">Renta de equipos para maniobras</h3>
-    <div class="divider"></div>
     <div class="grid">
-      <figure class="service">
-        <img src="assets/servicios/montacargas.jpg" alt="Montacargas" loading="lazy">
-        <figcaption>Montacargas<small>5K a 100K lbs</small></figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/gruas-pasillo.jpg" alt="Grúas de pasillo" loading="lazy">
-        <figcaption>Grúas de pasillo<small>8 a 15 ton</small></figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/gruas-titan.jpg" alt="Grúas Titán" loading="lazy">
-        <figcaption>Grúas Titán<small>12 a 22 ton</small></figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/gruas-at.jpg" alt="Grúas A/T" loading="lazy">
-        <figcaption>Grúas A/T<small>20 a 100 ton</small></figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/lowboy.jpg" alt="Lowboy" loading="lazy">
-        <figcaption>Lowboy<small>30 a 80 ton</small></figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/plataformas.jpg" alt="Plataformas industriales" loading="lazy">
-        <figcaption>Plataformas industriales</figcaption>
-      </figure>
-      <figure class="service">
-        <img src="assets/servicios/gantry.jpg" alt="Gantry, herramienta y equipo de elevación" loading="lazy">
-        <figcaption>Gantry, herramienta y equipo de elevación</figcaption>
-      </figure>
+      <article class="service">
+        <img src="assets/servicios/rigging.jpg" alt="Grúa elevando una máquina" loading="lazy">
+        <h3><i aria-hidden="true"></i>Rigging</h3>
+      </article>
+      <article class="service">
+        <img src="assets/servicios/maniobras.jpg" alt="Montacargas maniobrando una pieza industrial" loading="lazy">
+        <h3><i aria-hidden="true"></i>Maniobras industriales</h3>
+      </article>
+      <article class="service">
+        <img src="assets/servicios/carga-descarga.jpg" alt="Montacargas cargando un equipo" loading="lazy">
+        <h3><i aria-hidden="true"></i>Carga / descarga</h3>
+      </article>
+      <article class="service">
+        <img src="assets/servicios/traslados.jpg" alt="Tractocamión de GS RAL trasladando maquinaria" loading="lazy">
+        <h3><i aria-hidden="true"></i>Traslados de equipo / maquinaria</h3>
+      </article>
+      <article class="service">
+        <img src="assets/servicios/reubicacion.jpg" alt="Reubicación de un equipo con montacargas" loading="lazy">
+        <h3><i aria-hidden="true"></i>Reubicación de equipo</h3>
+      </article>
+      <article class="service">
+        <img src="assets/servicios/instalacion.jpg" alt="Maquinaria industrial instalada" loading="lazy">
+        <h3><i aria-hidden="true"></i>Instalación de todo tipo de maquinaria</h3>
+      </article>
+      <article class="service">
+        <img src="assets/servicios/plantas.jpg" alt="Grúa trabajando dentro de una planta industrial" loading="lazy">
+        <h3><i aria-hidden="true"></i>Montaje y desmantelamiento de plantas industriales</h3>
+      </article>
+      <article class="service">
+        <img src="assets/servicios/estructuras.jpg" alt="Grúa montando una estructura metálica" loading="lazy">
+        <h3><i aria-hidden="true"></i>Montaje de estructuras</h3>
+      </article>
     </div>
+
+    <article class="rental">
+      <img src="assets/servicios/renta-equipos.jpg" alt="Flotilla de camiones de GS RAL" loading="lazy">
+      <div class="rental-info">
+        <h3>Renta de equipos para maniobras</h3>
+        <ul>
+          <li>Herramienta</li>
+          <li>Gantry</li>
+          <li>Equipo de elevación</li>
+          <li><span><b>Montacargas</b> 5K a 100K lbs</span></li>
+          <li>Plataformas industriales</li>
+          <li><span><b>Grúas de pasillo</b> 8 a 15 ton</span></li>
+          <li><span><b>Grúas Titan</b> 12 a 22 ton</span></li>
+          <li><span><b>Grúas A/T</b> 20 a 100 ton</span></li>
+          <li><span><b>Lowboy</b> 30 a 80 ton</span></li>
+        </ul>
+      </div>
+    </article>
   </section>
 </body>
 </html>
