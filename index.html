@@ -29,9 +29,10 @@
     body {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px 16px;
+      gap: 48px;
+      padding: 32px 16px 48px;
       font-family: "Montserrat", system-ui, sans-serif;
       color: var(--text);
       background:
@@ -158,6 +159,90 @@
     }
     .btn-call:hover { border-color: var(--red); background: rgba(227, 35, 43, .08); }
 
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 26px;
+    }
+    .social a {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: var(--text);
+      background: #1f1f22;
+      border: 1px solid var(--gray-dark);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .social a:hover { transform: translateY(-2px); border-color: transparent; }
+    .social .fb:hover { background: #1877f2; }
+    .social .ig:hover { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); }
+    .social svg { width: 22px; height: 22px; }
+
+    /* Servicios */
+    .services {
+      width: 100%;
+      max-width: 960px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .section-title + .divider { margin: 14px auto 28px; }
+    .services h3.section-title { margin-top: 48px; font-size: 1.1rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .service {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--card-edge);
+      aspect-ratio: 4 / 3;
+    }
+    .service img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .service:hover img { transform: scale(1.06); }
+    .service figcaption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 36px 14px 12px;
+      font-size: .8rem;
+      font-weight: 600;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .9) 60%);
+      border-left: 4px solid var(--red);
+    }
+    .service figcaption small {
+      display: block;
+      margin-top: 2px;
+      font-size: .7rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-transform: none;
+    }
+
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .service figcaption { font-size: .68rem; padding: 28px 10px 10px; }
+    }
+
     footer {
       margin-top: 30px;
       font-size: .7rem;
@@ -195,7 +280,88 @@
       </a>
     </div>
 
+    <div class="social">
+      <a class="fb" href="https://www.facebook.com/share/1WKZqEqH3X/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+      </a>
+      <a class="ig" href="https://instagram.com/gs.ral?mdxt=b3I0bzV4N293azNi" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+      </a>
+    </div>
+
     <footer>RAL · VENTAS</footer>
   </main>
+
+  <section class="services">
+    <h2 class="section-title">Nuestros servicios</h2>
+    <div class="divider"></div>
+    <div class="grid">
+      <figure class="service">
+        <img src="assets/servicios/rigging.jpg" alt="Rigging" loading="lazy">
+        <figcaption>Rigging</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/maniobras.jpg" alt="Maniobras industriales" loading="lazy">
+        <figcaption>Maniobras industriales</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/carga-descarga.jpg" alt="Carga / descarga" loading="lazy">
+        <figcaption>Carga / descarga</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/traslados.jpg" alt="Traslados de equipo y maquinaria" loading="lazy">
+        <figcaption>Traslados de equipo y maquinaria</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/reubicacion.jpg" alt="Reubicación de equipo" loading="lazy">
+        <figcaption>Reubicación de equipo</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/instalacion.jpg" alt="Instalación de todo tipo de maquinaria" loading="lazy">
+        <figcaption>Instalación de todo tipo de maquinaria</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/montaje-plantas.jpg" alt="Montaje y desmantelamiento de plantas industriales" loading="lazy">
+        <figcaption>Montaje y desmantelamiento de plantas industriales</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/montaje-estructuras.jpg" alt="Montaje de estructuras" loading="lazy">
+        <figcaption>Montaje de estructuras</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="section-title">Renta de equipos para maniobras</h3>
+    <div class="divider"></div>
+    <div class="grid">
+      <figure class="service">
+        <img src="assets/servicios/montacargas.jpg" alt="Montacargas" loading="lazy">
+        <figcaption>Montacargas<small>5K a 100K lbs</small></figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/gruas-pasillo.jpg" alt="Grúas de pasillo" loading="lazy">
+        <figcaption>Grúas de pasillo<small>8 a 15 ton</small></figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/gruas-titan.jpg" alt="Grúas Titán" loading="lazy">
+        <figcaption>Grúas Titán<small>12 a 22 ton</small></figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/gruas-at.jpg" alt="Grúas A/T" loading="lazy">
+        <figcaption>Grúas A/T<small>20 a 100 ton</small></figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/lowboy.jpg" alt="Lowboy" loading="lazy">
+        <figcaption>Lowboy<small>30 a 80 ton</small></figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/plataformas.jpg" alt="Plataformas industriales" loading="lazy">
+        <figcaption>Plataformas industriales</figcaption>
+      </figure>
+      <figure class="service">
+        <img src="assets/servicios/gantry.jpg" alt="Gantry, herramienta y equipo de elevación" loading="lazy">
+        <figcaption>Gantry, herramienta y equipo de elevación</figcaption>
+      </figure>
+    </div>
+  </section>
 </body>
 </html>
